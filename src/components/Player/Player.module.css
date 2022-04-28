@@ -1,0 +1,133 @@
+.player {
+    position: fixed;
+    width: 100vw;
+    padding: 10px;
+
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0,0,0, 0.2);
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.container {
+    max-width: 1170px;
+    padding: 0 15px;
+
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    width: 60px;
+    height: 60px;
+
+    background-position: center;
+    background-size: cover;
+
+    text-align: center;
+}
+
+.left > i {
+    line-height: 60px;
+    font-size: 30px;
+    color: #0D8DBE;
+}
+
+.player h3 {
+    width: 250px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 15px;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.audio {
+    position: relative;
+    margin-left: 20px;
+}
+
+.audio > audio {
+    margin-top: 3px;
+    width: 600px
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: white;
+}
+
+audio::-webkit-media-controls-mute-button {}
+
+audio::-webkit-media-controls-play-button {
+    display: none;
+}
+
+audio::-webkit-media-controls-current-time-display {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+audio::-webkit-media-controls-time-remaining-display::first-letter {
+    color: white;
+}
+
+audio::-webkit-media-controls-timeline {
+    -webkit-filter: hue-rotate(143deg) saturate(10);
+}
+
+
+.play, .back, .next {
+    border: 0;
+    background-color: unset;
+
+    color: #0D8DBE;
+    font-size: 20px;
+
+    margin: 0 10px;
+
+    cursor: pointer;
+}
+
+.play {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #0D8DBE;
+    border-radius: 50%;
+
+    position: relative;
+}
+
+.active-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 70%;
+    height: 70%;
+    border: 10px solid rgba(13, 141, 191, 0.3);
+    padding: 12px;
+    border-radius: 50%;
+
+    animation: spreadAnimation 1.2s infinite;
+}
+
+@keyframes spreadAnimation {
+    0% {
+        border: 10px solid rgba(13, 141, 191, 0.3);
+    }
+
+    98% {
+        border: 20px solid rgba(13, 141, 191, 0.01);
+    }
+}

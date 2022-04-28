@@ -1,0 +1,98 @@
+.file {
+    width: calc(25% - 20px);
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.2);
+
+    cursor: pointer;
+}
+
+.header {
+    background-size: cover;
+    background-position: center;
+    height: 120px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.header > i {
+    font-size: 40px;
+    color: #0D8DBE;
+}
+
+.content {
+    padding: 5px 8px;
+    border-bottom: 1.5px solid rgba(0,0,0, 0.2);
+}
+
+.file:hover .content h4 {
+    color: #0D8DBE;
+}
+
+.content h4 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+
+    transition: all 0.2s ease-in;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 2px;
+}
+
+.time > i {
+    font-size: 12px;
+}
+
+.time > span {
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.bottom {
+    padding: 5px 8px 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.bottom > span:first-child {
+    color: #0D8DBE;
+}
+
+.bottom > span:first-child > i {
+    font-size: 14px;
+}
+
+.bottom > span:first-child > span {
+    padding-left: 2px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.bottom > span:last-child {
+    font-size: 14px;
+    font-weight: 400;
+}

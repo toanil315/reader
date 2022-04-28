@@ -1,0 +1,31 @@
+.folder {
+    vertical-align: middle;
+
+    width: calc(25% - 20px);
+    color: rgb(87, 87, 87);
+
+    padding: 10px 15px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.2);
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-out;
+}
+
+.folder:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0, 0.2);
+}
+
+.folder > i {
+    font-size: 20px;
+}
+
+.folder > span {
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 10px;
+}
