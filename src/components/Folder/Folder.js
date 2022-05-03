@@ -1,11 +1,12 @@
-import React from 'react'
-import style from './Folder.module.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import style from "./Folder.module.css";
 
-export default function Folder() {
+export default function Folder({date}) {
   return (
-    <div className={style['folder']}>
+    <Link to={`/folders/${date}`} className={style["folder"]}>
         <i className="fa-solid fa-folder"></i>
-        <span>27-04-2022</span>
-    </div>
-  )
+        <span>{date}</span>
+    </Link>
+  );
 }

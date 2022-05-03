@@ -1,13 +1,14 @@
-import React from 'react'
-import style from './Logo.module.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import style from "./Logo.module.css";
 
-export default function Logo({isHiddenText}) {
+export default function Logo({ isHiddenText }) {
   return (
-    <span className={style['logo']}>
+    <Link to={"/"}>
+      <span className={style["logo"]}>
         <img src={require("../../assets/images/logo.svg").default} alt="logo" />
-        {
-            isHiddenText ? "" : <span>NaturalReader</span>
-        }
-    </span>
-  )
+        {isHiddenText ? "" : <span>NaturalReader</span>}
+      </span>
+    </Link>
+  );
 }

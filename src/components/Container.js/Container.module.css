@@ -4,14 +4,39 @@
 }
 
 .container {
-    max-width: 950px;
-    height: 500px;
-    margin: 0px auto;
+    max-width: 920px;
+    height: 450px;
+    margin: 0px auto 20px;
     padding: 20px;
 
     background-color: white;
 
-    border-radius: 30px;
+    border-radius: 6px;
     
     box-shadow: 0 3px 5px rgba(0,0,0, 0.1);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgb(255, 255, 255);
+	border-radius: 20px;
+	background-color: #F5F5F5;
+}
+
+.container::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 15px;
+}
+
+.container::-webkit-scrollbar-thumb
+{
+	border-radius: 15px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgba(0,0,0, 0.4);
 }

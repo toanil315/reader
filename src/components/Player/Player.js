@@ -1,53 +1,74 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import style from "./Player.module.css";
 import wavBgImg from "../../assets/images/wav-bg-3.jpg";
+import {useSelector, useDispatch} from "react-redux"
 
 export default function Player() {
-  const [isPlay, setIsPlay] = useState(false);
   const audioRef = useRef(null);
+  const {currentAudio, isPlaying} = useSelector(state => state.PlayerReducer)
+  const dispatch = useDispatch()
 
-  const handleOnPlay = () => {
-    if (!isPlay) audioRef.current.play();
-    else audioRef.current.pause();
-    setIsPlay(!isPlay);
+  useEffect(() => {
+    if (isPlaying) audioRef.current.play();
+    else audioRef.current.pause(); 
+  }, [isPlaying])
+
+  const handlePlay = () => {
+    dispatch({
+      type: "TOGGLE_AUDIO",
+      payload: {
+        isPlaying: !isPlaying
+      }
+    })
   };
-  
-  console.log(isPlay)
 
   return (
-    <div className={style["player"]}>
+    currentAudio && <div className={style["player"]}>
       <div className={style["container"]}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className={style["left"]} style={{ backgroundImage: `url(${wavBgImg})` }}>
             <i className="fa-brands fa-itunes-note"></i>
           </div>
-          <h3>audio_21-04-2022-13_38_46_dwyops.wav</h3>
+          <h3>{currentAudio.audioName}</h3>
         </div>
         <div className={style["controls"]}>
-          <button className={`${style["back"]}`}>
+          <button onClick={() => {
+            audioRef.current.currentTime -= 10
+          }} className={`${style["back"]}`}>
             <i className="fa-solid fa-backward-step"></i>
           </button>
           <button
             className={`${style["play"]}`}
             onClick={() => {
-              handleOnPlay();
+              handlePlay();
             }}
           >
-            {isPlay ? (
+            {isPlaying ? (
                 <i className="fa-solid fa-pause"></i>
             ) : (
                 <i style={{ paddingLeft: "3px" }} className="fa-solid fa-play"></i>
             )}
-            {isPlay ? <span className={style["active-play"]}></span> : ""}
+            {isPlaying ? <span className={style["active-play"]}></span> : ""}
           </button>
-          <button className={`${style["next"]}`}>
+          <button onClick={() => {
+            audioRef.current.currentTime += 10
+          }} className={`${style["next"]}`}>
             <i className="fa-solid fa-forward-step"></i>
           </button>
         </div>
         <div className={style["audio"]}>
           <audio
             ref={audioRef}
-            src="https://res.cloudinary.com/toanil315/video/upload/v1651054664/wav/audio_21-04-2022-13_38_46_dwyops.wav"
+            src={currentAudio.url}
+            onEnded={() => {
+              console.log("ended")
+              dispatch({
+                type: "TOGGLE_AUDIO",
+                payload: {
+                  isPlaying: false
+                }
+              })
+            }}
             controls
           />
         </div>
