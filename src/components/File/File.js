@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 export default function File({ audio }) {
   const arrTime = audio.date.split("-");
-  const time = `${arrTime[0]}-${arrTime[1]}-${arrTime[2]} ${arrTime[3]}:${arrTime[4]}:${arrTime[5]}`;
+  const time = `${arrTime[0]}-${arrTime[1]}-${arrTime[2]}`;
 
   const dispatch = useDispatch()
 
@@ -16,6 +16,15 @@ export default function File({ audio }) {
         audio
       }
     })
+
+    setTimeout(() => {
+      dispatch({
+        type: "TOGGLE_AUDIO",
+        payload: {
+          isPlaying: true
+        }
+      })
+    }, 500);
   }
 
   return (
